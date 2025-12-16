@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎤 Voice Calculator</h1>
+            <p class="subtitle">Perform calculations using voice commands</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Calculator Display -->
+            <div class="calculator-wrapper">
+                <div class="display-section">
+                    <div class="display" id="display">0</div>
+                    <div class="expression" id="expression"></div>
+                </div>
+
+                <!-- Canvas for visual feedback -->
+                <canvas id="visualCanvas" width="400" height="100"></canvas>
+
+                <!-- Calculator Buttons -->
+                <div class="buttons-grid">
+                    <button class="btn btn-clear" onclick="clearAll()">C</button>
+                    <button class="btn btn-clear" onclick="clearEntry()">CE</button>
+                    <button class="btn btn-operator" onclick="appendOperator('/')">/</button>
+                    <button class="btn btn-operator" onclick="appendOperator('*')">×</button>
+                    
+                    <button class="btn btn-number" onclick="appendNumber('7')">7</button>
+                    <button class="btn btn-number" onclick="appendNumber('8')">8</button>
+                    <button class="btn btn-number" onclick="appendNumber('9')">9</button>
+                    <button class="btn btn-operator" onclick="appendOperator('-')">-</button>
+                    
+                    <button class="btn btn-number" onclick="appendNumber('4')">4</button>
+                    <button class="btn btn-number" onclick="appendNumber('5')">5</button>
+                    <button class="btn btn-number" onclick="appendNumber('6')">6</button>
+                    <button class="btn btn-operator" onclick="appendOperator('+')">+</button>
+                    
+                    <button class="btn btn-number" onclick="appendNumber('1')">1</button>
+                    <button class="btn btn-number" onclick="appendNumber('2')">2</button>
+                    <button class="btn btn-number" onclick="appendNumber('3')">3</button>
+                    <button class="btn btn-equals" onclick="calculate()">=</button>
+                    
+                    <button class="btn btn-number btn-zero" onclick="appendNumber('0')">0</button>
+                    <button class="btn btn-number" onclick="appendDecimal()">.</button>
+                    <button class="btn btn-operator" onclick="appendOperator('%')">%</button>
+                </div>
+            </div>
+
+            <!-- Voice Control Section -->
+            <div class="voice-section">
+                <div class="voice-controls">
+                    <button id="voiceBtn" class="voice-btn" onclick="toggleVoiceRecognition()">
+                        <span class="mic-icon">🎤</span>
+                        <span id="voiceStatus">Start Voice</span>
+                    </button>
+                    <div class="voice-status" id="voiceFeedback">Click to start voice recognition</div>
+                </div>
+                
+                <div class="voice-commands">
+                    <h3>Voice Commands:</h3>
+                    <ul>
+                        <li>"<strong>Clear</strong>" - Clear the display</li>
+                        <li>"<strong>Number</strong>" - Say numbers (e.g., "five", "ten")</li>
+                        <li>"<strong>Plus</strong>", "<strong>Minus</strong>", "<strong>Times</strong>", "<strong>Divide</strong>" - Operations</li>
+                        <li>"<strong>Equals</strong>" or "<strong>Calculate</strong>" - Calculate result</li>
+                        <li>"<strong>Percent</strong>" - Percentage operation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
